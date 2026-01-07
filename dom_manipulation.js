@@ -102,7 +102,7 @@ let pictureArray = [
   },
 ];
 
-let currentIndex = 0; // Speichert, welches Bild gerade im Popup ist
+let currentIndex = 0;
 
 function generatePictures() {
   const container = document.getElementById("picture_container");
@@ -110,7 +110,6 @@ function generatePictures() {
 
   for (let i = 0; i < pictureArray.length; i++) {
     let item = pictureArray[i];
-    // Wir packen das Bild in ein figure, lassen die Klassen aber am Button
     container.innerHTML += `
       <button type="button" class="pic-card" onclick="openPopup(${i})" aria-label="Bild ansehen: ${item.titel}">
         <figure>
@@ -124,41 +123,34 @@ function generatePictures() {
 function openPopup(index) {
   currentIndex = index;
   let item = pictureArray[index];
-
   document.getElementById("popup_img").src = item.pictureSrc;
-  document.getElementById("popup_img").alt = item.titel; // Wichtig für WCAG
+  document.getElementById("popup_img").alt = item.titel;
   document.getElementById("popup_title").innerText = item.titel;
   document.getElementById("popup_description").innerText = item.description;
-
   document.getElementById("index_number").innerText =
     currentIndex + 1 + " / " + pictureArray.length;
 
   document.getElementById("popup_overlay").style.display = "flex";
   document.body.style.overflow = "hidden";
-
-  // Setzt Fokus auf den Schließen-Button für Tastatur-Nutzer
   setTimeout(() => document.querySelector(".close-btn").focus(), 50);
 }
 
-// Funktion für die Pfeile (-1 für zurück, 1 für vor)
 function changePicture(direction) {
   currentIndex = currentIndex + direction;
 
-  // Endlos-Schleife: Wenn man beim letzten Bild "vor" drückt, kommt man zum ersten
   if (currentIndex >= pictureArray.length) {
     currentIndex = 0;
   } else if (currentIndex < 0) {
     currentIndex = pictureArray.length - 1;
   }
 
-  openPopup(currentIndex); // Popup mit neuem Index neu befüllen
+  openPopup(currentIndex);
 }
 
 function closePopup() {
   document.getElementById("popup_overlay").style.display = "none";
   document.body.style.overflow = "auto";
 }
-// Pfeiltasten-Steuerung hinzufügen
 window.addEventListener("keydown", function (event) {
   if (document.getElementById("popup_overlay").style.display === "flex") {
     if (event.key === "Escape") closePopup();

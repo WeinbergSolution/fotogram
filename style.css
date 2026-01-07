@@ -260,7 +260,7 @@ Popup / Modal (MIT FIGURE/FIGCAPTION)
   outline: none;
 }
 
-/*  IMMER bei Fokus erscheint (Maus & Tastatur) */
+/* bei Fokus erscheint (Maus & Tastatur) */
 .close-btn:focus {
   outline: 2px solid var(--color-accent);
   outline-offset: 4px;
