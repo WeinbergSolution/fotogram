@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fotogram</title>
+    <title>Fotogram - Dein persönliches Fotoalbum</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@300..900&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
@@ -17,41 +17,86 @@
   <body onload="generatePictures()">
     <header class="head">
       <div class="container_head">
-        <img src="./img/logo_Fotogram.png" class="logo" />
-        <p>Fotogram</p>
+        <img src="./img/logo_Fotogram.png" class="logo" alt="Fotogram Logo" />
+        <span><strong>Fotogram</strong></span>
       </div>
     </header>
 
-    <Hero>
-      <main class="container">
+    <main class="container">
+      <section class="hero">
         <div class="hero_container_inner">
           <h1>Your personal photo album</h1>
-          <section id="picture_container"></section>
+          <section id="picture_container" aria-label="Fotogalerie"></section>
         </div>
-      </main>
-    </Hero>
+      </section>
+    </main>
 
     <footer class="site_footer">
       <p>© 2026 Pascal Weinberg Fotogram</p>
     </footer>
-    <div id="popup_overlay" class="popup-overlay" onclick="closePopup()">
-      <div class="popup-content" onclick="event.stopPropagation()">
+
+    <div
+      id="popup_overlay"
+      class="popup-overlay"
+      onclick="closePopup()"
+      role="presentation"
+    >
+      <div
+        class="popup-content"
+        onclick="event.stopPropagation()"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="popup_title"
+      >
         <div class="popup-header">
           <h2 id="popup_title"></h2>
-          <span class="close-btn" onclick="closePopup()">&times;</span>
+          <button
+            class="close-btn"
+            onclick="closePopup()"
+            aria-label="Fenster schließen"
+          >
+            &times;
+          </button>
         </div>
 
-        <img id="popup_img" src="" alt="Popup Bild" />
+        <figure>
+          <img id="popup_img" src="" alt="Detaillierte Ansicht" />
+          <figcaption id="popup_description"></figcaption>
+        </figure>
 
-        <p id="popup_description"></p>
-
-        <div class="popup-footer">
-          <button class="nav-btn" onclick="changePicture(-1)">&larr;</button>
-          <span id="index_number">1/12</span>
-          <button class="nav-btn" onclick="changePicture(1)">&rarr;</button>
-        </div>
+        <nav class="popup-footer" aria-label="Bildnavigation">
+          <ul
+            style="
+              list-style: none;
+              display: flex;
+              align-items: center;
+              gap: 30px;
+            "
+          >
+            <li>
+              <button
+                class="nav-btn"
+                onclick="changePicture(-1)"
+                aria-label="Vorheriges Bild"
+              >
+                &larr;
+              </button>
+            </li>
+            <li><span id="index_number" aria-live="polite">1/12</span></li>
+            <li>
+              <button
+                class="nav-btn"
+                onclick="changePicture(1)"
+                aria-label="Nächstes Bild"
+              >
+                &rarr;
+              </button>
+            </li>
+          </ul>
+        </nav>
       </div>
     </div>
+
+    <script src="dom_manipulation.js"></script>
   </body>
-  <script src="dom_manipulation.js"></script>
 </html>

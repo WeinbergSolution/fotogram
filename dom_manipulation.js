@@ -1,103 +1,103 @@
 let pictureArray = [
   {
     pictureSrc: "./img/image1.jpeg",
-    titel: "Sonnenuntergang",
+    titel: "Bild Livepetz eine Idee in der Entwicklung",
     description: "Visualisierung meiner Idee Livepetz.",
   },
   {
     pictureSrc: "./img/image2.jpeg",
-    titel: "Sonnenuntergang",
+    titel: "Bild Livepetz eine Idee in der Entwicklung",
     description: "Visualisierung meiner Idee Livepetzl.",
   },
   {
     pictureSrc: "./img/image3.jpeg",
-    titel: "Sonnenuntergang",
+    titel: "Greenscren Bild für OBS ",
     description: "Greenscren Bild für OBS selbst erstellt.",
   },
   {
     pictureSrc: "./img/image4.jpeg",
-    titel: "Sonnenuntergang",
+    titel: "Bild Umarmende Kinder",
     description: "Bild für eine Kindergeschichte für die Idee Dreambook.",
   },
   {
     pictureSrc: "./img/image5.jpeg",
-    titel: "Sonnenuntergang",
+    titel: "Bild ein wesen aus eienr anderen Welt",
     description: "Ein wesen aus einer anderen Welt, sind sie schon hier?",
   },
   {
     pictureSrc: "./img/image6.jpeg",
-    titel: "Sonnenuntergang",
+    titel: "Galarie Bild ein Mann und ein riesen Tier",
     description: "Ein Mann mit einem riesen Dingsbums.",
   },
   {
     pictureSrc: "./img/image7.jpeg",
-    titel: "Sonnenuntergang",
+    titel: "Galarie Bild riesen Schlange",
     description: "Snake Alert.",
   },
   {
     pictureSrc: "./img/image8.jpeg",
-    titel: "Sonnenuntergang",
+    titel: "Galarie Bild Bart Simpson als Mensch",
     description: "Bart Simpson in real live.",
   },
   {
     pictureSrc: "./img/image9.jpeg",
-    titel: "Sonnenuntergang",
+    titel: "Galarie Bild echt aussehender Zombie",
     description: "The Walkin Dead alive.",
   },
   {
     pictureSrc: "./img/image10.jpeg",
-    titel: "Sonnenuntergang",
+    titel: "Bild Streamer Papaplatte Karikatur",
     description: "Papaplatte ript sein Cutter.",
   },
   {
     pictureSrc: "./img/image11.jpeg",
-    titel: "Sonnenuntergang",
+    titel: "Bild Wikki Prototyp elektrisches Gerät",
     description:
       "Wikki eine Idee von mir um Kindern zugang zu LLMS Barriererfrei zugeben.",
   },
   {
     pictureSrc: "./img/image12.jpeg",
-    titel: "Sonnenuntergang",
+    titel: "Galarie Bild Weinende Katze",
     description: "Cat lost Money.",
   },
   {
     pictureSrc: "./img/image13.jpeg",
-    titel: "Sonnenuntergang",
+    titel: "Bild Eichhörnchen das Mountenbike färt",
     description: "Colles Hörnchen on the Road.",
   },
   {
     pictureSrc: "./img/image14.jpeg",
-    titel: "Sonnenuntergang",
+    titel: "Galarie Bild Pepe Wallstreet",
     description: "Pepe Wallstreet Money Money Money",
   },
   {
     pictureSrc: "./img/image15.jpeg",
-    titel: "Sonnenuntergang",
+    titel: "Galarie Bild Grüner Frosch Pepe",
     description: "Nie mals verkaufen hört IHR!!",
   },
   {
     pictureSrc: "./img/image16.jpeg",
-    titel: "Sonnenuntergang",
+    titel: "Galarie Bild Kind spielt Fußball",
     description: "Junge spielt Fußball erstellt für eine Kindergeschichte.",
   },
   {
     pictureSrc: "./img/image17.jpeg",
-    titel: "Sonnenuntergang",
+    titel: "Galarie Bild Putin Pokemoncard",
     description: "Putin in Pokemoncard Style",
   },
   {
     pictureSrc: "./img/image18.jpeg",
-    titel: "Sonnenuntergang",
+    titel: "Galarie Bild Trump Pokemoncard",
     description: "Trump in Pokemoncard Style.",
   },
   {
     pictureSrc: "./img/image19.jpeg",
-    titel: "Sonnenuntergang",
+    titel: "Galarie Bild",
     description: "Ich hier du Da",
   },
   {
     pictureSrc: "./img/image20.jpeg",
-    titel: "Sonnenuntergang",
+    titel: "Galarie Bild Gamendes Eichhörnchen",
     description: "Lets Game Bitch",
   },
 ];
@@ -110,29 +110,34 @@ function generatePictures() {
 
   for (let i = 0; i < pictureArray.length; i++) {
     let item = pictureArray[i];
+    // Wir packen das Bild in ein figure, lassen die Klassen aber am Button
     container.innerHTML += `
-      <div class="pic-card" onclick="openPopup(${i})">
-        <img src="${item.pictureSrc}" alt="${item.titel}">
-      </div>
+      <button type="button" class="pic-card" onclick="openPopup(${i})" aria-label="Bild ansehen: ${item.titel}">
+        <figure>
+          <img src="${item.pictureSrc}" alt="${item.titel}">
+        </figure>
+      </button>
     `;
   }
 }
 
 function openPopup(index) {
-  currentIndex = index; // Globalen Index setzen
+  currentIndex = index;
   let item = pictureArray[index];
 
-  // Inhalte befüllen
   document.getElementById("popup_img").src = item.pictureSrc;
+  document.getElementById("popup_img").alt = item.titel; // Wichtig für WCAG
   document.getElementById("popup_title").innerText = item.titel;
   document.getElementById("popup_description").innerText = item.description;
 
-  // Zähler aktualisieren (z.B. 1/12)
   document.getElementById("index_number").innerText =
     currentIndex + 1 + " / " + pictureArray.length;
 
   document.getElementById("popup_overlay").style.display = "flex";
   document.body.style.overflow = "hidden";
+
+  // Setzt Fokus auf den Schließen-Button für Tastatur-Nutzer
+  setTimeout(() => document.querySelector(".close-btn").focus(), 50);
 }
 
 // Funktion für die Pfeile (-1 für zurück, 1 für vor)
@@ -153,5 +158,12 @@ function closePopup() {
   document.getElementById("popup_overlay").style.display = "none";
   document.body.style.overflow = "auto";
 }
-
+// Pfeiltasten-Steuerung hinzufügen
+window.addEventListener("keydown", function (event) {
+  if (document.getElementById("popup_overlay").style.display === "flex") {
+    if (event.key === "Escape") closePopup();
+    if (event.key === "ArrowRight") changePicture(1);
+    if (event.key === "ArrowLeft") changePicture(-1);
+  }
+});
 generatePictures();
