@@ -1,0 +1,175 @@
+Deine Ziele
+1.)Anwendung von Variablen und Datenstrukturen
+2.)Implementierung von CRUD Operationen (Create, Read, Update, Delete)
+3.)Anwendung von Kontrollstrukturen zur Steuerung der Applogik mit 4:)Schleifen und Bedingungen
+
+Voraussetzungen
+1.)Module 1 - 6 durchgearbeitet
+2.)Grundverständnis von HTML und CSS
+3.)Verständnis grundlegender Programmierkonzepte wie Variablen,    	   Datentypen, Operatoren, und Funktionen
+
+______________________________________________________________
+
+CheckList - User Strory:
+
+User Story 1:
+Als Besucher der Seite möchte ich die Fotogalerie in kleiner Vorschau sehen, damit ich mir einen schnellen Überblick über die Bilder verschaffen kann.
+1.)Alle Fotos werden dynamisch über JavaScript gerendert und in einem kleinen Format (Thumbnail) auf der Seite angezeigt.
+2.)Fotos haben einen hover Effekt.
+
+User Story 2:
+Als Besucher möchte ich ein Foto durch Anklicken in großer Ansicht öffnen können, damit ich Details besser erkennen kann.
+3.)Nutze den vorhandenen Platz, so dass Bilder in Detailansicht deutlich größer als in der Thumbnail-Ansicht sind.
+
+User Story 3:
+Als Besucher möchte ich in der Großansicht nach links und rechts klicken können, um zum vorherigen oder nächsten Bild zu gelangen, damit ich die Galerie bequem durchblättern kann.
+4.)Die Großansicht lässt sich entweder mit einem Button oder einem Klick auf den Hintergrund schließen.
+5.)Buttons sind an einer festen Stelle fixiert in der großen Ansicht.
+6.)Die Dialogansicht, einschließlich der "Vorwärts"-, "Rückwärts"- und "Schließen"-Funktionen, muss komplett mit der Tastatur bedienbar sein (z.B. mit den Pfeiltasten und der Esc-Taste).
+
+User Story 4:
+Als Besucher möchte ich, dass die Seite ein flüssiges Erlebnis bietet und die Fotos schnell laden.
+7.)Die Bilder sind komprimiert (max. 500kb je Bild)
+
+
+-------------------------------------------------------------
+
+CheckList - WCAG:
+
+Struktur & Semantik
+	.Nutze semantische Tags: header, nav, main, section, article,aside, footer
+	.Verwende nur eine h1 pro Seite
+	.Untergeordnete Inhalte mit h2, h3 etc. logisch strukturieren
+	.Keine Überschriften "überspringen"
+	.Benutze section für thematisch zusammenhängende Abschnitte
+	.Verwende article für eigenständige Inhalte
+	.Ergänze aside für Zusatzinfos
+	.Setze figure + figcaption für Bilder mit Bedeutung
+Textinhalte & Struktur
+	.Verwende keine zu kleinen Schriften (mindestens 16px)
+	.Achte auf ausreichenden Farbkontrast
+	.Nutze <strong> oder <em> statt <b> und <i>
+	.Verwende <span> nur für Inline-Struktur
+	.Fließtext gehört in <p>, nicht in <div>
+Bilder & Links
+	.Jedes <img> Element hat ein sinnvolles alt=”” Attribut
+	.Links/Button beschreiben Ziel oder Aktion klar und verständlich (z.B. “Schreibe 	 mir eine Nachricht” statt “Hier klicken”)
+	.Benutze kanonische/sprechende Pfade  und URL’s (example.com/assets/teamfoto-juli-	 2024.jpg statt example.com/assets/file1.jpg) 
+Navigation
+	.Navigation in <nav> Element kapseln
+	.Liste verwenden (<ul> + <li>) für strukturierte Navigation
+	.Jedes Navigationsmenü mit aria-label oder aria-labelledby beschreiben, wenn 	 mehrere Navigationselemente vorhanden sind
+	.Ermögliche die Seitenbedienung komplett via Tastatur durch Tabindex/Buttons/etc.
+ARIA – Accessible Rich Internet Applications
+	.ARIA Labels nutzen, wenn semantisches HTML nicht ausreicht
+	.Wichtig: ARIA ersetzt keine Semantik!
+	.Achte bei eigenständig stehenden HTML-Elementen (z.B. Dialog, Article) darauf, 	 dass diese ebenfalls eine gute Struktur haben (z.B. Header, Titel)
+Tabellen
+	.Nutze <caption> für Tabellenüberschriften
+	.Verwende <th> für Spalten- oder Zeilenüberschriften
+	.Nutze scope="col" oder scope="row" bei <th> für Klarheit
+Standards
+	.Dokumenttitel (<title>) eindeutig und relevant gestalten
+	.Immer die Inhaltssprache der Website mit <html lang="..."> fest definieren (en, 	 de, etc.)
+Tools 
+	.Überprüfe deinen Code mit den folgendes Tools:
+	.Wave: https://wave.webaim.org/
+	.Chrome Developer Tools “Lighthouse” Tab
+	.Chrome Extension: IBM Equal Access Accessibility Checker
+Weiterführende Links
+	.Offizieller Link zu den Anforderungen: https://www.w3.org/TR/WCAG22/ 
+
+-------------------------------------------------------------------------------
+
+
+CheckList - HTML:
+
+1.Struktur und Semantik
+	.Nutze semantische Tags: header, nav, main, section, article, aside, footer
+	.Verwende h1 bis h6 in sinnvoller Hierarchie
+	.Benutze section für thematische Abschnitte
+	.Verwende article für eigenständige Inhalte
+	.Ergänze aside für Zusatzinfos, nicht für Layout
+	.Setze figure + figcaption für Bilder mit Bedeutung
+2.Lesbarkeit und Wartbarkeit
+	.Einheitlich eingerückt und formatiert
+	.Keine tiefen, unübersichtlichen Verschachtelungen
+	.Verwende sprechende Namen (englisch)
+	.Verständliche, gepflegte Kommentare, die den Code ergänzen
+3.Barrierefreiheit
+	.Bilder haben sinnvolle alt-Texte
+	.E-Mail-Adressen mit mailto:
+	.Tabellen haben:
+	 <caption> (wenn sinnvoll)
+	 <th> statt nur <td> für Überschriften
+	.korrekte logische Struktur (Zeilen oder Spalten)
+	.Navigation als Liste (<ul> in <nav>)
+4.Inhalte richtig kennzeichnen
+	.Wichtiges hervorheben mit <strong> oder <em>, nicht nur <b> oder <i>
+	.Inline-Textstruktur mit <span>
+	.Fließtext in <p>, nicht in div
+5.Gültigkeit und Standards
+	.HTML-Dokument mit korrektem Doctype beginnen (<!DOCTYPE html>)
+	.Immer ein <html lang="..."> setzen
+	.Im <head>: meta charset="UTF-8" und <title> nicht vergessen
+	.Eine index.html sollte immer ein favicon erhalten
+6.Bonus: Developer-Best Practices
+	.Verwende so wenig div wie möglich und so viel wie nötig(„div-Suppe“ vermeiden)
+	.Trenne Struktur (HTML) von Darstellung (CSS)
+7.Struktur und Semantik
+	.https://developer.mozilla.org/en-	 US/docs/Learn_web_development/Core/Accessibility/HTML
+	.https://www.semrush.com/blog/semantic-html5-guide/
+
+---------------------------------------------------------------------------
+
+CheckList - CSS:
+
+1.Struktur und Organisation
+	.Nutze Kommentare zur Trennung und Dokumentation der Abschnitte
+	.Nutze eine einheitliche Reihenfolge von Eigenschaften (z. B. Position, Box-Modell, 	 Typografie, Farbe, Sonstiges)
+	.Gruppiere verwandte Selektoren sinnvoll zusammen
+2.Methodik und Namenskonvention
+	.Nutze sprechende Klassennamen (englisch, keine Abkürzungen wie .bx oder .clr)
+	.Vermeide zu generische Klassen wie .red, .big, .container
+	.Keine IDs für Styling, nur für JS oder interne Verlinkung
+3.Lesbarkeit und Wartbarkeit
+	.Verwende konsistente Einrückung (z. B. 2 oder 4 Leerzeichen)
+	.Schreibe jede CSS-Regel in eine neue Zeile
+	.Nutze Leerzeilen zwischen Regelblöcken
+	.Halte den Code kurz, klar und modular
+Beispiel:
+.active_button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: var(--primary);
+  color: #fff;
+  border-radius: 4px;
+}
+
+4.Responsives Design
+	.Cluster Medienabfragen (@media) bspw. unten im Code
+	.Flexbox und Grid statt floats und positioning
+	.Es ist dir überlassen, ob du mobile-first oder desktop-first arbeitest! 
+	.Begrenze den Content für große Auflösungen. Das Design hat die volle Breite!
+5.Best Practices
+	.Verwende CSS Custom Properties (Variablen):
+
+:root {
+  --primary-color: #0066cc;
+  --spacing-base: 1rem;
+}
+
+.button {
+  padding: var(--spacing-base);
+  background: var(--primary-color);
+}
+
+	.Vermeide !important, außer bei Edge-Cases
+	.Entferne ungenutztes CSS regelmäßig
+6.Quellen
+	.https://developer.mozilla.org/en-US/docs/Web/CSS
+	.https://css-tricks.com/
+	.https://getbem.com/introduction/
+	.https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+
+-------------------------------------------------------------------------------

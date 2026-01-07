@@ -1,0 +1,299 @@
+/* *********************************
+CSS Reset 
+************************************/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Wichtig für korrekte Breitenberechnung */
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column; /* Stapelt Header, Main und Footer */
+  font-family: "Figtree", sans-serif;
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* *********************************
+ROOT 
+************************************/
+
+:root {
+  --color-bg: #06171e;
+  --color-card: #0d1b24;
+  --color-accent: #ff4d4d; /* Das Rot deiner Nav-Pfeile */
+  --color-text: #ffffff;
+  --max-width: 1440px;
+}
+
+/* *********************************
+LAYOUT & MAIN
+************************************/
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 40px;
+  width: 100%;
+}
+
+main {
+  /* Berechnet die Höhe so, dass kein Scrollen nötig ist */
+  /* 100vh minus Header (81px) minus Footer (128px) */
+  min-height: calc(100vh - 81px - 128px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0;
+}
+
+/* *********************************
+Header
+************************************/
+
+.head {
+  background-color: #09212a;
+  padding: 20px 140px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.container_head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.logo {
+  width: 40px;
+  height: auto;
+}
+
+/* *********************************
+Hero & Modern Gallery Preview
+************************************/
+
+h1 {
+  font-size: 56px;
+  font-weight: 800;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.hero_container_inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+#picture_container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 1200px;
+}
+
+/*  Miniatur-Karten */
+.pic-card {
+  background: var(--color-card);
+  padding: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* "Pop"-Effekt */
+}
+
+.pic-card img {
+  width: 160px;
+  height: 110px;
+  object-fit: cover;
+  opacity: 0.7;
+  filter: grayscale(20%);
+  transition: all 0.4s ease;
+}
+
+.pic-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  border-color: rgba(255, 77, 77, 0.4);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 77, 77, 0.1);
+}
+
+.pic-card:hover img {
+  opacity: 1;
+  filter: grayscale(0%);
+}
+
+/* *********************************
+Popup / Modal (Dark Mode)
+************************************/
+
+.popup-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px); /* Verschwimmt den Hintergrund */
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background-color: var(--color-card);
+  color: white;
+  padding: 40px;
+  border-radius: 40px;
+  max-width: 600px;
+  width: 90%;
+  position: relative;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#popup_title {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+  text-align: left;
+}
+
+.popup-content img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+#popup_description {
+  color: #ccc;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.close-btn {
+  font-size: 28px;
+  cursor: pointer;
+  color: white;
+  transition: transform 0.2s ease;
+}
+
+.close-btn:hover {
+  transform: scale(1.2);
+}
+
+/* Navigation Buttons */
+.popup-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav-btn {
+  background: #1a2a35;
+  color: var(--color-accent);
+  border: none;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.nav-btn:hover {
+  background: #253641;
+  transform: scale(1.1);
+}
+
+#index_number {
+  color: #888;
+  font-size: 0.9rem;
+}
+
+/* *********************************
+Footer
+************************************/
+
+footer {
+  background-color: #09212a;
+  margin-top: auto; /* Klebt den Footer nach unten */
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.site_footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 128px;
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* *********************************
+Animations
+************************************/
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
