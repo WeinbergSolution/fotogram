@@ -21,8 +21,8 @@ let pictureArray = [
   },
   {
     pictureSrc: "./img/image5.jpeg",
-    titel: "Bild ein wesen aus eienr anderen Welt",
-    description: "Ein wesen aus einer anderen Welt, sind sie schon hier?",
+    titel: "esen aus eienr anderen Welt",
+    description: "Sind sie schon hier?",
   },
   {
     pictureSrc: "./img/image6.jpeg",
@@ -52,8 +52,7 @@ let pictureArray = [
   {
     pictureSrc: "./img/image11.jpeg",
     titel: "Bild Wikki Prototyp elektrisches Gerät",
-    description:
-      "Wikki eine Idee von mir um Kindern zugang zu LLMS Barriererfrei zugeben.",
+    description: "Wikki zugang zu LLMS Barriererfrei.",
   },
   {
     pictureSrc: "./img/image12.jpeg",
@@ -97,7 +96,7 @@ let pictureArray = [
   },
   {
     pictureSrc: "./img/image20.jpeg",
-    titel: "Bild Gamendes Eichhörnchen",
+    titel: "Gamendes Eichhörnchen",
     description: "Lets Game Bitch",
   },
 ];
@@ -106,17 +105,19 @@ let currentIndex = 0;
 
 function generatePictures() {
   const container = document.getElementById("picture_container");
+  const template = document.getElementById("picture-template");
+
   container.innerHTML = "";
 
   for (let i = 0; i < pictureArray.length; i++) {
     let item = pictureArray[i];
-    container.innerHTML += `
-      <button type="button" class="pic-card" onclick="openPopup(${i})" aria-label="Bild ansehen: ${item.titel}">
-        <figure>
-          <img src="${item.pictureSrc}" alt="${item.titel}">
-        </figure>
-      </button>
-    `;
+
+    let htmlString = template.innerHTML;
+    htmlString = htmlString
+      .replace(/INDEX/g, i)
+      .replace(/TITEL/g, item.titel)
+      .replace(/QUELLE/g, item.pictureSrc);
+    container.innerHTML += htmlString;
   }
 }
 
@@ -158,4 +159,3 @@ window.addEventListener("keydown", function (event) {
     if (event.key === "ArrowLeft") changePicture(-1);
   }
 });
-generatePictures();

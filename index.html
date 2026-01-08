@@ -40,6 +40,7 @@
       class="popup-overlay"
       onclick="closePopup()"
       role="presentation"
+      style="display: none"
     >
       <div
         class="popup-content"
@@ -59,7 +60,7 @@
           </button>
         </div>
 
-        <figure>
+        <figure class="popup-figure">
           <img id="popup_img" src="" alt="Detaillierte Ansicht" />
           <figcaption id="popup_description"></figcaption>
         </figure>
@@ -89,6 +90,19 @@
         </nav>
       </div>
     </div>
+
+    <template id="picture-template">
+      <button
+        type="button"
+        class="pic-card"
+        onclick="openPopup(INDEX)"
+        aria-label="Bild ansehen: TITEL"
+      >
+        <figure>
+          <img src="QUELLE" alt="TITEL" />
+        </figure>
+      </button>
+    </template>
 
     <script src="dom_manipulation.js"></script>
   </body>
