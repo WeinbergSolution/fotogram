@@ -1,12 +1,12 @@
 let pictureArray = [
   {
     pictureSrc: "./img/image1.jpeg",
-    titel: "Bild Livepetz eine Idee in der Entwicklung",
+    titel: "Idee in der Entwicklung",
     description: "Visualisierung meiner Idee Livepetz.",
   },
   {
     pictureSrc: "./img/image2.jpeg",
-    titel: "Bild Livepetz eine Idee in der Entwicklung",
+    titel: "Idee in der Entwicklung",
     description: "Visualisierung meiner Idee Livepetzl.",
   },
   {
@@ -26,27 +26,27 @@ let pictureArray = [
   },
   {
     pictureSrc: "./img/image6.jpeg",
-    titel: "Galarie Bild ein Mann und ein riesen Tier",
+    titel: "Mann und ein riesen Tier",
     description: "Ein Mann mit einem riesen Dingsbums.",
   },
   {
     pictureSrc: "./img/image7.jpeg",
-    titel: "Galarie Bild riesen Schlange",
+    titel: "Bild riesen Schlange",
     description: "Snake Alert.",
   },
   {
     pictureSrc: "./img/image8.jpeg",
-    titel: "Galarie Bild Bart Simpson als Mensch",
+    titel: "Bart Simpson als Mensch",
     description: "Bart Simpson in real live.",
   },
   {
     pictureSrc: "./img/image9.jpeg",
-    titel: "Galarie Bild echt aussehender Zombie",
+    titel: "echt aussehender Zombie",
     description: "The Walkin Dead alive.",
   },
   {
     pictureSrc: "./img/image10.jpeg",
-    titel: "Bild Streamer Papaplatte Karikatur",
+    titel: "Streamer Papaplatte Karikatur",
     description: "Papaplatte ript sein Cutter.",
   },
   {
@@ -57,47 +57,47 @@ let pictureArray = [
   },
   {
     pictureSrc: "./img/image12.jpeg",
-    titel: "Galarie Bild Weinende Katze",
+    titel: "Bild Weinende Katze",
     description: "Cat lost Money.",
   },
   {
     pictureSrc: "./img/image13.jpeg",
-    titel: "Bild Eichhörnchen das Mountenbike färt",
+    titel: "Eichhörnchen das Mountenbike färt",
     description: "Colles Hörnchen on the Road.",
   },
   {
     pictureSrc: "./img/image14.jpeg",
-    titel: "Galarie Bild Pepe Wallstreet",
+    titel: "Bild Pepe Wallstreet",
     description: "Pepe Wallstreet Money Money Money",
   },
   {
     pictureSrc: "./img/image15.jpeg",
-    titel: "Galarie Bild Grüner Frosch Pepe",
+    titel: "Bild Grüner Frosch Pepe",
     description: "Nie mals verkaufen hört IHR!!",
   },
   {
     pictureSrc: "./img/image16.jpeg",
-    titel: "Galarie Bild Kind spielt Fußball",
+    titel: "Bild Kind spielt Fußball",
     description: "Junge spielt Fußball erstellt für eine Kindergeschichte.",
   },
   {
     pictureSrc: "./img/image17.jpeg",
-    titel: "Galarie Bild Putin Pokemoncard",
+    titel: "Bild Putin Pokemoncard",
     description: "Putin in Pokemoncard Style",
   },
   {
     pictureSrc: "./img/image18.jpeg",
-    titel: "Galarie Bild Trump Pokemoncard",
+    titel: "Bild Trump Pokemoncard",
     description: "Trump in Pokemoncard Style.",
   },
   {
     pictureSrc: "./img/image19.jpeg",
-    titel: "Galarie Bild",
+    titel: "Bild",
     description: "Ich hier du Da",
   },
   {
     pictureSrc: "./img/image20.jpeg",
-    titel: "Galarie Bild Gamendes Eichhörnchen",
+    titel: "Bild Gamendes Eichhörnchen",
     description: "Lets Game Bitch",
   },
 ];
