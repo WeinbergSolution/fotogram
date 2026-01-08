@@ -260,7 +260,7 @@ Popup / Modal (MIT FIGURE/FIGCAPTION)
   outline: none;
 }
 
-/* bei Fokus erscheint (Maus & Tastatur) */
+/* bei Fokus (Maus & Tastatur) */
 .close-btn:focus {
   outline: 2px solid var(--color-accent);
   outline-offset: 4px;
@@ -379,19 +379,16 @@ Responsiv
 }
 
 @media (max-width: 438px) {
-  /* Wir reduzieren das seitliche Padding, damit mehr Platz für Bilder bleibt */
   .container {
     padding: 0 15px;
   }
 
-  /* Wir verkleinern den Zwischenraum */
   #picture_container {
     gap: 10px;
   }
 
-  /* Wir reduzieren die Bildbreite, damit 2 x 155px + Gap + Padding < 375px ergeben */
   .pic-card img {
     width: 155px;
-    height: 105px; /* Höhe leicht angepasst, um Proportionen zu wahren */
+    height: 105px;
   }
 }
